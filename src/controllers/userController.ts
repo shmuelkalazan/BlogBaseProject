@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { UserModel } from "../models/userModel";
 import { createUser,getUserByName } from "../services/userService";
-import { object } from "zod";
 
 export const createNewUser = async (req: Request, res: Response) => {
     try {
