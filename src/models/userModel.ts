@@ -1,9 +1,8 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
-import validator from "validator";
 
 export interface IUser extends Document {
   _id: Types.ObjectId;
-  username: string;
+  user_name: string;
   email: string;
   profile: {
     bio?: string;
@@ -12,6 +11,33 @@ export interface IUser extends Document {
   posts: Types.ObjectId[];
 }
 
-const UserSchema = new Schema<IUser>({});
+const UserSchema = new Schema<IUser>({
+  user_name: {
+      type: String,
+      required: [true, "User name is required"],
+      minlength: [3, "Name is too short, please enter at least 3 characters"],
+      unique:true
+  },
+  email: {
+    type: String,
+    required: [true, "User name is required"],
+    unique:true
+  },
+  profile: {
+    bio: {
+      type: String,
+      maxlength: [500, "Bio should not exceed 500 characters"],
+    },
+    socialLinks: {
+      type: [String],
+    },
+  },
+  posts: {
+      type: [Schema.Types.ObjectId],
+      ref:"Post",
+      default:[]
+  }
+},{timestamps:true});
+
 
 export default mongoose.model<IUser>("User", UserSchema);

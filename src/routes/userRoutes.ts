@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { createUser, getUser, getUsers } from "../controllers/userController";
+import { createUser, getAllUsers, getUserByUserName } from "../controllers/userController";
 
 const userRouter = Router();
-
+//create new user
 userRouter.post("/", createUser);
-userRouter.get("/", getUsers);
-userRouter.get("/:username", getUser);
+//gel all users
+userRouter.get("/", getAllUsers);
+//get user by uniq name
+userRouter.get("/:username", getUserByUserName);
 
 export default userRouter;
