@@ -4,6 +4,7 @@ import postRouter from "./routes/postRoutes";
 import userRouter from "./routes/userRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import connectDB from "./config/db";
+const { specs, swaggerUi } = require('./swagger');
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(express.json());
 connectDB();
 
 // Routes
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 app.use("/api/posts", postRouter);
 app.use("/api/users", userRouter);
 

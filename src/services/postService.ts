@@ -32,6 +32,22 @@ const createNewPost = async (post:any):Promise<any | void> =>{
     }
 }
 
+
+const getallPosts = async ():Promise<any | void> =>{
+    try {
+    const allPosts = await PostModel.find()
+    if (allPosts){
+        return allPosts
+    }
+    else{
+        return "posts not found"
+    }  
+    } catch (err) {
+        console.log(err)
+        return err
+    }
+}
 export {
-    createNewPost
+    createNewPost,
+    getallPosts
 }

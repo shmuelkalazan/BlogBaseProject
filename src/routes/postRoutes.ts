@@ -11,8 +11,45 @@ import {
 const postRouter = Router();
 //create new post
 //vv
+/**
+ * @swagger
+ * /api/posts:
+ *   post:
+ *     summary: Create a new post
+ *     tags: [Posts]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               content:
+ *                 type: string
+ *               author:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Post created successfully
+ *       400:
+ *         description: Invalid request
+ */
 postRouter.post("/", createPost);
 //get all post
+/**
+ * @swagger
+ * /api/posts:
+ *   get:
+ *     summary: Get all posts
+ *     tags: [Posts]
+ *     responses:
+ *       200:
+ *         description: List of posts
+ *       400:
+ *         description: Invalid request
+ */
 postRouter.get("/", getPosts);
 //get post by id
 postRouter.get("/:id", getPost);
