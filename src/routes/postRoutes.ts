@@ -10,6 +10,7 @@ import {
 
 const postRouter = Router();
 //create new post
+//vv
 postRouter.post("/", createPost);
 //get all post
 postRouter.get("/", getPosts);

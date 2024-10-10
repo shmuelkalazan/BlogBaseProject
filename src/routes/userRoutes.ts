@@ -3,6 +3,7 @@ import { createNewUser, getAllUsers, getUserByUserName } from "../controllers/us
 
 const userRouter = Router();
 //create new user
+//vv
 userRouter.post("/", createNewUser);
 //get user by uniq name
 userRouter.get("/:username", getUserByUserName);
