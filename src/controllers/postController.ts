@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import Post, { IPost } from "../models/postModel";
+import { PostModel } from "../models/postModel";
 import User from "../models/userModel";
 
 // Create a new post
@@ -42,7 +42,7 @@ export const updatePost = async (
 ): Promise<void> => {};
 
 
-// Add a comment to a post
+// Add a comment to a post by post id
 export const addComment = async (
   req: Request,
   res: Response,

@@ -1,12 +1,12 @@
 import mongoose, { Schema, Document,Model, Types } from "mongoose";
 
-export interface IComment {
+interface IComment {
   content: string;
   author: Types.ObjectId;
   createdAt: Date;
 }
 
-export interface IPost extends Document {
+interface IPost extends Document {
   _id: Types.ObjectId;
   title: string;
   content: string;
@@ -52,4 +52,7 @@ const PostModel:Model<IPost> = mongoose.model<IPost>('Post', PostSchema);
 
 export {
   PostModel,
+  PostSchema,
+  IPost,
+  IComment
 };

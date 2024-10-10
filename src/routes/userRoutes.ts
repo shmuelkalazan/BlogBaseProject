@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createUser, getAllUsers, getUserByUserName } from "../controllers/userController";
+import { createNewUser, getAllUsers, getUserByUserName } from "../controllers/userController";
 
 const userRouter = Router();
 //create new user
-userRouter.post("/", createUser);
+userRouter.post("/", createNewUser);
 //gel all users
 userRouter.get("/", getAllUsers);
 //get user by uniq name

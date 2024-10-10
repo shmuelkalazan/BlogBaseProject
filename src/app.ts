@@ -10,15 +10,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 1113;
 
-// Middleware
+// Middlewares
 app.use(express.json());
-
 connectDB();
 
 // Routes
 app.use("/api/posts", postRouter);
 app.use("/api/users", userRouter);
-
 
 // Error handling middleware
 app.use(errorHandler);
